@@ -11,13 +11,24 @@
 <body>
 	<c:choose>
 		<c:when test="${! empty filmList}">
-			<c:forEach items="${filmList}" var="item">
-				<ul>
-					<li>${item.title}</li>
-					<li>${item.description}</li>
-					<li>${item.releaseYear}</li>
-				</ul>
+			<ol>
+			<c:forEach items="${filmList}" var="film">
+				<li>
+				<ul><strong>${film.title }</strong>
+					<li>${film.description}</li>
+					<li>${film.releaseYear}</li>
+					
+				</ul>	
+			<ul><strong>Cast:</strong>
+					<c:forEach items="${film.cast }" var="actor">
+							<li> ${actor.firstName } ${actor.lastName }</li>
+							
+					</c:forEach>
+					</ul>
+			</li>
+			<br>
 			</c:forEach>
+			</ol>
 		</c:when>
 		<c:otherwise>
 			<p>No films found for that keyword</p>
