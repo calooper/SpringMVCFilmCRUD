@@ -47,10 +47,12 @@ public class FilmController {
 	}
 
 //
-	@RequestMapping(path = "updateFilm.do")
+	@RequestMapping(path = "updateFilm.do" )
 	public ModelAndView modifyFilm(int id, String title, String description, int releaseYear, int languageId,
 			int rentalDuration, double rentalRate, int length, double replacementCost, String rating,
 			String specialFeatures) {
+		
+		System.out.println("fdddddddddddddddddddddddddddddddddddddddd");
 		
 
 		boolean result = filmDao.modifyFilm(id, title, description, releaseYear, languageId, rentalDuration,
@@ -62,7 +64,7 @@ public class FilmController {
 		return mv;
 	}
 
-	@RequestMapping(path = "modifyFilm.do")
+	@RequestMapping(path = "modifyFilm.do" )
 	public ModelAndView modifyFilmInputReRoute(int id) {
 		Film film = filmDao.filmSearchId(id);
 		ModelAndView mv = new ModelAndView();
