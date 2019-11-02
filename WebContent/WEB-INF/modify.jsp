@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,7 +11,19 @@
 </head>
 <body>
 	<form action="modify.do" method="POST">
-		<input type="text"
+		<input type="hidden" name="id" value= ${ film.id}/>
+		<input type="text" name ="title" value= ${ film.title}/>
+		<input type="text" name ="description" value= ${ film.description}/>
+		<input type="text" name = "releaseYear" value= ${ film.releaseYear}/>
+		<input type="text" name = "languageId" value= ${ film.languageId}/>
+		<input type="text" name = "rentalDuration" value= ${ film.rentalDuration}/>
+		<input type="text" name = "rentalRate" value= ${ film.rentalRate}/>
+		<input type="text" name = "length" value= ${ film.length}/>
+		<input type="text" name = "replacementCost" value= ${ film.replacementCost}/>
+		<input type="text" name = "rating" value= ${ film.rating}/>
+		<input type="text" name = "specialFeatures" value= ${ film.specialFeatures}/>
+		<input type="submit" value = "Submit changes"/>
+		
 	</form>
 </body>
 </html>

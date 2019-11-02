@@ -20,12 +20,12 @@
 				<input type="hidden" name="id" value=${ film.id} /> 
 				<input type="submit" value="Delete this film" />
 			</form>
-			<form action="modify.jsp">
+			<form action="modifyFilm.do" method="GET">
 				<input type="hidden" name="film" value=${ film} /> 
 				<input type="submit" value="Modify" />
 			</form>
 			<form action = "index.html">
-				input
+				<input type="submit" value="Back to Home"/>
 			</form>
 		</c:when>
 		<c:otherwise>
