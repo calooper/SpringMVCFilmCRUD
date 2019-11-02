@@ -14,7 +14,7 @@ import com.skilldistillery.film.entities.Film;
 
 public class FilmDaoImpl implements FilmDAO {
 	private static final String URL = "jdbc:mysql://localhost:3306/sdvid?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false";
-	
+
 	static {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -35,7 +35,7 @@ public class FilmDaoImpl implements FilmDAO {
 
 		try {
 			Connection conn = DriverManager.getConnection(URL, user, pass);
-			PreparedStatement stmt = conn.prepareStatement(sql);
+			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			stmt.setInt(1, id);
 			ResultSet res = stmt.executeQuery();
 
@@ -56,6 +56,42 @@ public class FilmDaoImpl implements FilmDAO {
 		}
 
 		return film;
+	}
+
+	public List<Film> filmSearchKeyword(String keyword) {
+		Film film = null;
+		List<Actor> cast = new ArrayList<>();
+		List<Film> filmList = new ArrayList<>();
+		String user = "student";
+		String pass = "student";
+		String sql = "select * FROM film join language on film.language_id = language.id WHERE film.title like ? or film.description like ?";
+
+		try {
+			Connection conn = DriverManager.getConnection(URL, user, pass);
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setString(1, "%" + keyword + "%");
+			stmt.setString(2, "%" + keyword + "%");
+			ResultSet res = stmt.executeQuery();
+			while (res.next()) {
+				cast = findActorsByFilmId(res.getInt("film.id"));
+				film = new Film(res.getInt("id"), res.getString("title"), res.getString("description"),
+						res.getInt("release_year"), res.getInt("language_id"), res.getInt("rental_duration"),
+						res.getDouble("rental_rate"), res.getInt("length"), res.getDouble("replacement_cost"),
+						res.getString("rating"), res.getString("special_features"), cast,
+						res.getString("language.name"));
+				filmList.add(film);
+			}
+
+			res.close();
+			stmt.close();
+			conn.close();
+		}
+
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return filmList;
 	}
 
 	public List<Actor> findActorsByFilmId(int filmId) {
@@ -128,36 +164,32 @@ public class FilmDaoImpl implements FilmDAO {
 
 		catch (SQLException e) {
 			e.printStackTrace();
-//			if (conn != null) {
-//				try {
-//					conn.rollback();
-//				} catch (SQLException sqle2) {
-//					System.err.println("Error trying to rollback");
-//				}
-//			}
+			if (conn != null) {
+				try {
+					conn.rollback();
+				} catch (SQLException sqle2) {
+					System.err.println("Error trying to rollback");
+				}
+			}
 
 		}
 		return null;
 	}
 
-	public void deleteFilm() {
+	public boolean deleteFilm(int id) {
 		String user = "student";
 		String pass = "student";
 		String sql = "Delete from film where id = ?";
-		String sql2 = "SELECT LAST_INSERT_ID();";
+		boolean result = true;
 		Connection conn = null;
 		try {
 			conn = DriverManager.getConnection(URL, user, pass);
-			PreparedStatement stmt = conn.prepareStatement(sql2, Statement.RETURN_GENERATED_KEYS);
-			ResultSet rs = stmt.executeQuery();
-			int id = rs.getInt(1);
-			stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, id);
 			stmt.executeUpdate();
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			result = false;
 			if (conn != null) {
 				try {
 					conn.rollback();
@@ -166,6 +198,6 @@ public class FilmDaoImpl implements FilmDAO {
 				}
 			}
 		}
-
+		return result;
 	}
 }
