@@ -10,7 +10,7 @@
 <title>Edit Film</title>
 </head>
 <body>
-	<form action="modifyFilm.do" method="POST">
+	<form action="updateFilm.do" method="POST">
 		<input type="hidden" name="id" value= ${ film.id}/>
 		<input type="text" name ="title" value= ${ film.title}/>
 		<input type="text" name ="description" value= ${ film.description}/>

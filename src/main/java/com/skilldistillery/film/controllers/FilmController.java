@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.film.dao.FilmDAO;
+import com.skilldistillery.film.entities.Film;
 
 @Controller
 public class FilmController {
@@ -45,17 +46,25 @@ public class FilmController {
 		return mv;
 	}
 
-	@RequestMapping(path = "modifyFilm.do")
-	public ModelAndView deleteFilm(int id, String title, String description, int releaseYear, int languageId,
-			int rentalDuration, double rentalRate, int length, double replacementCost, String rating,
-			String specialFeatures) {
+//
+	@RequestMapping(path = "updateFilm.do")
+	public ModelAndView modifyFilm(Film film) {
 
-		boolean result = filmDao.modifyFilm(id, title, description, releaseYear, languageId, rentalDuration, rentalRate,
-				length, replacementCost, rating, specialFeatures);
+		boolean result = filmDao.modifyFilm(film);
+		System.out.println(result);
 
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("result", result);
-		mv.setViewName("WEB-INF/removedmessage.jsp");
+		mv.setViewName("WEB-INF/modify.jsp");
+		return mv;
+	}
+
+	@RequestMapping(path = "modifyFilm.do")
+	public ModelAndView modifyFilmInputReRoute(Film film) {
+
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("film", film);
+		mv.setViewName("WEB-INF/modify.jsp");
 		return mv;
 	}
 }
