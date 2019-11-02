@@ -15,6 +15,7 @@
 				<li>${film.title}</li>
 				<li>${film.description}</li>
 				<li>${film.releaseYear}</li>
+				
 			<ul><strong>Cast:</strong>
 			<c:forEach items="${film.cast }" var="actor">
 							<li> ${actor.firstName } ${actor.lastName }</li>
