@@ -48,14 +48,17 @@ public class FilmController {
 
 //
 	@RequestMapping(path = "updateFilm.do")
-	public ModelAndView modifyFilm(Film film) {
+	public ModelAndView modifyFilm(int id, String title, String description, int releaseYear, int languageId,
+			int rentalDuration, double rentalRate, int length, double replacementCost, String rating,
+			String specialFeatures) {
+		
 
-		boolean result = filmDao.modifyFilm(film);
-		System.out.println(result);
+		boolean result = filmDao.modifyFilm(id, title, description, releaseYear, languageId, rentalDuration,
+				rentalRate, length, replacementCost, rating, specialFeatures);
 
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("result", result);
-		mv.setViewName("WEB-INF/modify.jsp");
+		mv.setViewName("WEB-INF/modifiedmessage.jsp");
 		return mv;
 	}
 
