@@ -10,19 +10,17 @@
 </head>
 <body>
 	<c:choose>
-		<c:when test="${! empty film}">
-			<ul>
-				<li>${film.title}</li>
-				<li>${film.description}</li>
-				<li>${film.releaseYear}</li>
-			</ul>
-			<form action="deleteFilm.do" method="GET">
-				<input type="hidden" name="id" value=${ film.id}> <input
-					type="submit" value="Delete this film" />
-			</form>
+		<c:when test="${! empty filmList}">
+			<c:forEach items="${filmList}" var="item">
+				<ul>
+					<li>${item.title}</li>
+					<li>${item.description}</li>
+					<li>${item.releaseYear}</li>
+				</ul>
+			</c:forEach>
 		</c:when>
 		<c:otherwise>
-			<p>No film found</p>
+			<p>No films found for that keyword</p>
 		</c:otherwise>
 	</c:choose>
 </body>

@@ -10,20 +10,15 @@
 </head>
 <body>
 	<c:choose>
-		<c:when test="${! empty film}">
-			<ul>
-				<li>${film.title}</li>
-				<li>${film.description}</li>
-				<li>${film.releaseYear}</li>
-			</ul>
-			<form action="deleteFilm.do" method="GET">
-				<input type="hidden" name="id" value=${ film.id}> <input
-					type="submit" value="Delete this film" />
-			</form>
+		<c:when test="${result}">
+			<h1>Success!</h1>
 		</c:when>
 		<c:otherwise>
-			<p>No film found</p>
+			<h3>Something went wrong, unable to remove film form database</h3>
 		</c:otherwise>
 	</c:choose>
+	<form action="index.html">
+		<input type="submit" value="Back to Home" />
+	</form>
 </body>
 </html>
