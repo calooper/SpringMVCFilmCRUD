@@ -215,19 +215,19 @@ public class FilmDaoImpl implements FilmDAO {
 			conn.setAutoCommit(false); // START TRANSACTION
 			String sql = "UPDATE film SET title = ?, description = ?, release_year = ?, language_id = ?, "
 					+ "rental_duration = ?, rental_rate = ?, length = ?, replacement_cost = ?, rating = ?, "
-					+ "special_features = ?  WHERE id=?";
-			PreparedStatement stmt = conn.prepareStatement(sql);
+					+ "special_features = ?  WHERE film.id=?";
+			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-			stmt.setString(2, title);
-			stmt.setString(3, description);
-			stmt.setInt(4, rereleaseYear);
-			stmt.setInt(5, languageId);
-			stmt.setInt(6, rentalDuration);
-			stmt.setDouble(7, rentalRate);
-			stmt.setInt(8, length);
-			stmt.setDouble(9, replacementCost);
-			stmt.setString(10, rating);
-			stmt.setString(11, specialFeatures);
+			stmt.setString(1, title);
+			stmt.setString(2, description);
+			stmt.setInt(3, rereleaseYear);
+			stmt.setInt(4, languageId);
+			stmt.setInt(5, rentalDuration);
+			stmt.setDouble(6, rentalRate);
+			stmt.setInt(7, length);
+			stmt.setDouble(8, replacementCost);
+			stmt.setString(9, rating);
+			stmt.setString(10, specialFeatures);
 			stmt.setInt(11, id);
 
 			int updateCount = stmt.executeUpdate();

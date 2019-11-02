@@ -47,16 +47,26 @@ public class FilmController {
 	}
 
 //
-	@RequestMapping(path = "updateFilm.do" )
-	public ModelAndView modifyFilm(int id, String title, String description, int releaseYear, int languageId,
-			int rentalDuration, double rentalRate, int length, double replacementCost, String rating,
+	@RequestMapping(path = "updateFilm.do")
+	public ModelAndView modifyFilm(String id, String title, String description, String releaseYear, String languageId,
+			String rentalDuration, String rentalRate, String length, String replacementCost, String rating,
 			String specialFeatures) {
 		
-		System.out.println("fdddddddddddddddddddddddddddddddddddddddd");
+		System.out.println(id + "upadte film");
+		
+		int idInt = Integer.parseInt(id);
+		int releaseYearInt = Integer.parseInt(releaseYear);
+		int languageIdInt = Integer.parseInt(languageId);
+		int rentalDurationInt = Integer.parseInt(rentalDuration);
+		double rentalRateDouble = Double.parseDouble(rentalRate);
+		int lengthInt = Integer.parseInt(rentalDuration);
+		double replacementCostDouble = Double.parseDouble(rentalRate);
+		
 		
 
-		boolean result = filmDao.modifyFilm(id, title, description, releaseYear, languageId, rentalDuration,
-				rentalRate, length, replacementCost, rating, specialFeatures);
+
+		boolean result = filmDao.modifyFilm(idInt, title, description, releaseYearInt, languageIdInt, rentalDurationInt, rentalRateDouble,
+				lengthInt, replacementCostDouble, rating, specialFeatures);
 
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("result", result);
@@ -64,11 +74,15 @@ public class FilmController {
 		return mv;
 	}
 
-	@RequestMapping(path = "modifyFilm.do" )
+	@RequestMapping(path = "modifyFilm.do")
 	public ModelAndView modifyFilmInputReRoute(int id) {
+		
+		System.out.println(id + "top");
+		
 		Film film = filmDao.filmSearchId(id);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("film", film);
+		System.out.println(film + "last");
 		mv.setViewName("WEB-INF/modify.jsp");
 		return mv;
 	}
