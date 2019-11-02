@@ -7,8 +7,16 @@ import com.skilldistillery.film.entities.Film;
 
 public interface FilmDAO {
 	public Film filmSearchId(int id);
+
 	public List<Film> filmSearchKeyword(String keyword);
+
 	public List<Actor> findActorsByFilmId(int filmId);
+
 	public Film createFilm(String title, String description, int releaseYear);
+
 	public boolean deleteFilm(int id);
+
+	public boolean modifyFilm(int id, String title, String description, int releaseYear, int languageId,
+			int rentalDuration, double rentalRate, int length, double replacementCost, String rating,
+			String specialFeatures);
 }

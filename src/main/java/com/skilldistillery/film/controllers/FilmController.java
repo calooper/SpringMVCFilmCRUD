@@ -3,11 +3,9 @@ package com.skilldistillery.film.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.film.dao.FilmDAO;
-import com.skilldistillery.film.entities.Film;
 
 @Controller
 public class FilmController {
@@ -41,6 +39,20 @@ public class FilmController {
 	@RequestMapping(path = "deleteFilm.do")
 	public ModelAndView deleteFilm(int id) {
 		boolean result = filmDao.deleteFilm(id);
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("result", result);
+		mv.setViewName("WEB-INF/removedmessage.jsp");
+		return mv;
+	}
+
+	@RequestMapping(path = "modifyFilm.do")
+	public ModelAndView deleteFilm(int id, String title, String description, int releaseYear, int languageId,
+			int rentalDuration, double rentalRate, int length, double replacementCost, String rating,
+			String specialFeatures) {
+
+		boolean result = filmDao.modifyFilm(id, title, description, releaseYear, languageId, rentalDuration, rentalRate,
+				length, replacementCost, rating, specialFeatures);
+
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("result", result);
 		mv.setViewName("WEB-INF/removedmessage.jsp");
