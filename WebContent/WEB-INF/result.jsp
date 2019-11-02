@@ -26,7 +26,7 @@
 				<input type="submit" value="Delete this film" />
 			</form>
 			<form action="modifyFilm.do" method="GET">
-				<input type="hidden" name="film" value=${ film} /> 
+				<input type="hidden" name="id" value=${ film.id} /> 
 				<input type="submit" value="Modify" />
 			</form>
 			<form action = "index.html">
