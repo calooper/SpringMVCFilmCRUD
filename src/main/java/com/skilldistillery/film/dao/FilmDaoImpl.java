@@ -14,6 +14,7 @@ import com.skilldistillery.film.entities.Film;
 
 public class FilmDaoImpl implements FilmDAO {
 	private static final String URL = "jdbc:mysql://localhost:3306/sdvid?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false";
+	
 	static {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
