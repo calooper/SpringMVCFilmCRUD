@@ -60,8 +60,8 @@ public class FilmController {
 	}
 
 	@RequestMapping(path = "modifyFilm.do")
-	public ModelAndView modifyFilmInputReRoute(Film film) {
-
+	public ModelAndView modifyFilmInputReRoute(int id) {
+		Film film = filmDao.filmSearchId(id);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("film", film);
 		mv.setViewName("WEB-INF/modify.jsp");
