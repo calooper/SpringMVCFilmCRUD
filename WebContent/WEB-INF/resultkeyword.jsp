@@ -9,6 +9,9 @@
 <title>Film</title>
 </head>
 <body>
+			<form action = "index.html">
+				<input type="submit" value="Back to Home"/>
+			</form>
 	<c:choose>
 		<c:when test="${! empty filmList}">
 			<ol>
@@ -26,6 +29,14 @@
 					</c:forEach>
 					</ul>
 			</li>
+						<form action="deleteFilm.do" method="GET">
+				<input type="hidden" name="id" value=${ film.id} /> 
+				<input type="submit" value="Delete this film" />
+			</form>
+			<form action="modifyFilm.do" method="GET">
+				<input type="hidden" name="id" value=${ film.id} /> 
+				<input type="submit" value="Modify" />
+			</form>
 			<br>
 			</c:forEach>
 			</ol>
