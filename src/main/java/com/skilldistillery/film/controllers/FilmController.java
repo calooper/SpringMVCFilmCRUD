@@ -82,7 +82,9 @@ public class FilmController {
 		Film film = filmDao.filmSearchId(id);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("film", film);
+		
 		System.out.println(film + "last");
+		
 		mv.setViewName("WEB-INF/modify.jsp");
 		return mv;
 	}
