@@ -17,11 +17,18 @@
 			<ol>
 			<c:forEach items="${filmList}" var="film">
 				<li>
-				<ul><strong>${film.title }</strong>
-					<li>${film.description}</li>
-					<li>${film.releaseYear}</li>
-					
-				</ul>	
+				<ul style="list-style: none;">
+				<li><strong>${film.title}</strong></li>
+				<li>${film.description}</li>
+				<li>Release Year: ${film.releaseYear}</li>
+				<li>Rental Duration: ${film.rentalDuration } days</li>
+				<li>Rental Rate: $${film.rentalRate } per night</li>
+				<li>Length: ${film.length } Hours</li>
+				<li>Replacement Cost: $${film.replacementCost }</li>
+				<li>Rating: ${film.rating }</li>
+				<li>Special Features ${film.specialFeatures }</li>
+				<li>Language: ${film.filmLanguage }</li>
+				</ul>		
 			<ul><strong>Cast:</strong>
 					<c:forEach items="${film.cast }" var="actor">
 							<li> ${actor.firstName } ${actor.lastName }</li>

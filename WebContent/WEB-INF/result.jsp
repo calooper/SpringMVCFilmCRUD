@@ -11,11 +11,17 @@
 <body>
 	<c:choose>
 		<c:when test="${! empty film}">
-			<ul>
-				<li>${film.title}</li>
+			<ul style="list-style: none;">
+				<li><strong>${film.title}</strong></li>
 				<li>${film.description}</li>
-				<li>${film.releaseYear}</li>
-				
+				<li>Release Year: ${film.releaseYear}</li>
+				<li>Rental Duration: ${film.rentalDuration } days</li>
+				<li>Rental Rate: $${film.rentalRate } per night</li>
+				<li>Length: ${film.length } Hours</li>
+				<li>Replacement Cost: $${film.replacementCost }</li>
+				<li>Rating: ${film.rating }</li>
+				<li>Special Features ${film.specialFeatures }</li>
+				<li>Language: ${film.filmLanguage }</li>				
 			<ul><strong>Cast:</strong>
 			<c:forEach items="${film.cast }" var="actor">
 							<li> ${actor.firstName } ${actor.lastName }</li>
