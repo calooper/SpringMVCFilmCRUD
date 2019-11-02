@@ -31,10 +31,10 @@ public class FilmController {
 	}
 
 	@RequestMapping(path = "createFilm.do")
-	public ModelAndView createFilm(String title, String description, int release_year) {
+	public ModelAndView createFilm(String title, String description, int releaseYear) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("WEB-INF/result.jsp");
-		mv.addObject("film", filmDao.createFilm(title, description, release_year));
+		mv.addObject("film", filmDao.createFilm(title, description, releaseYear));
 		return mv;
 	}
 

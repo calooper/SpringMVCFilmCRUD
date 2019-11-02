@@ -17,8 +17,15 @@
 				<li>${film.releaseYear}</li>
 			</ul>
 			<form action="deleteFilm.do" method="GET">
-				<input type="hidden" name="id" value=${ film.id}> <input
-					type="submit" value="Delete this film" />
+				<input type="hidden" name="id" value=${ film.id} /> 
+				<input type="submit" value="Delete this film" />
+			</form>
+			<form action="modify.jsp">
+				<input type="hidden" name="film" value=${ film} /> 
+				<input type="submit" value="Modify" />
+			</form>
+			<form action = "index.html">
+				input
 			</form>
 		</c:when>
 		<c:otherwise>
