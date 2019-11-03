@@ -29,7 +29,7 @@
 				<li>Rating: ${film.rating }</li>
 				<li>Special Features ${film.specialFeatures }</li>
 				<li>Language: ${film.filmLanguage }</li>
-				<li>Category: ${film.category }</li>
+				<li>Category: ${category }</li>
 				</ul>		
 			<ul><strong>Cast:</strong>
 					<c:forEach items="${film.cast }" var="actor">
