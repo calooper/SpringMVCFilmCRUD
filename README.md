@@ -3,6 +3,7 @@ This project is a full-stack Spring MVC web application that allows users to ret
 
 ### FLOW
 The application begins in an HTML File where the user is displayed the options to:
+
 -Search Film by ID
 -Search Film by keyword
 -Create new Film

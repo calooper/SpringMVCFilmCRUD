@@ -44,11 +44,9 @@
 			type="text" name="length" value="${ film.length}" /><br>
 		Replacement Cost<br> <input type="text" name="replacementCost"
 			value="${ film.replacementCost}" /><br> Rating<br> <input
-			type="text" name="rating" value="${ film.rating}" /><br> Special
-		Features<br> <input type="text" name="specialFeatures"
+			type="text" name="rating" value="${ film.rating}" /><br>
+		Special Features<br> <input type="text" name="specialFeatures"
 			value="${ film.specialFeatures}" /><br> <input type="submit"
-			value="Submit changes" /> >>>>>>>
-		d6151a3b3a5223895ae33db0b9c254813d37a145
-	</form>
+			value="Submit changes" />
 </body>
 </html>
