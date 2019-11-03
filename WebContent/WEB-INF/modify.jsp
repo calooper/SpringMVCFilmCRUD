@@ -21,19 +21,19 @@
 	<form action="updateFilm.do">
 
 
-		<input type="hidden" name="id" value="${ film.id}" /> Title<br> 
-		<input type="text" name="title" value="${ film.title}" /><br> Description<br> 
-		<input type="text" name="description"value="${ film.description}" /><br> Release Year<br> 
-		<input type="text" name="releaseYear" value="${ film.releaseYear}" /><br> Language ID<br> 
-		<input type="text" name="languageId"value="${ film.languageId}" /><br> Rental Duration<br> 
-		<input type="text" name="rentalDuration" value="${ film.rentalDuration}" /><br> Rental Rate<br> 
-		<input type="text" name="rentalRate" value="${ film.rentalRate}" /><br> Length<br> 
-		<input type="text" name="length" value="${ film.length}" /><br> Replacement Cost<br> 
-		<input type="text" name="replacementCost" value="${ film.replacementCost}" /><br> Rating<br> 
-		<input type="text" name="rating" value="${ film.rating}" /><br> Special Features<br> 
-		<input type="text" name="specialFeatures" value="${ film.specialFeatures}" /><br> 
+		<input type="hidden" name="id" value="${ film.id}" style="opacity: 0.5;"/>
+		Title <input type="text" name="title" value="${ film.title}" style="opacity: 0.5;"/> 
+		About <input type="text" name="description"value="${ film.description}" style="opacity: 0.5;"/> 
+		Year <input type="text" name="releaseYear" value="${ film.releaseYear}" style="opacity: 0.5;"/><br><br> 
+		Language ID <input type="text" name="languageId"value="${ film.languageId}" style="opacity: 0.5;"/> 
+		Rental Duration <input type="text" name="rentalDuration" value="${ film.rentalDuration}" style="opacity: 0.5;"/> 
+		Rate <input type="text" name="rentalRate" value="${ film.rentalRate}" style="opacity: 0.5;"/><br><br>
+		Length <input type="text" name="length" value="${ film.length}" style="opacity: 0.5;"/> 
+		Replacement Cost <input type="text" name="replacementCost" value="${ film.replacementCost}" style="opacity: 0.5;"/> 
+		Rating <input type="text" name="rating" value="${ film.rating}" style="opacity: 0.5;"/><br><br> 
+		Features<input type="text" name="specialFeatures" value="${ film.specialFeatures}" style="opacity: 0.5;"/><br> 
 		<input type="submit" value="Submit changes" />
-		
+		</form>
 		
 </body>
 </html>
