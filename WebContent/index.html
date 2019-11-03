@@ -24,26 +24,36 @@
 </head>
 <body>
 
-	<div class="form1">
-		<form class="searchButton" action="searchId.do" method="GET">
-			<input type="number" name="id" /> 
-			<input type="submit" value="Search by Id" />
-				
-		</form>
-	</div>
+   
+    <div class="topBar">
+
+      <a href="index.html" class="fas fa-home" aria-hidden="true"  style="font-size:30px"></a>
+      
+
+    </div>
+
+	  		<div class="form1">
+    		<form class="searchButton" action="searchId.do" method="GET">
+    			<input type="number" name="id" />
+    			<!-- <input style="color: white; background: black; "type="submit" value="Search by Id" /> --> 
+    			<button type="submit" class="btn btn-primary " value="Search by Id">Search by Id   </button>
+    		</form>
+    	</div>
 
 
 	<div class="form2">
 		<form class="searchButton" action="searchKeyword.do" method="GET">
 			<input type="text" name="keyword" /> 
-			<input type="submit" value="Search by keyword" />	
+			<!-- <input style="color: white; background: black;" type="submit" value="Search by keyword" /> -->
+ 			<button type="submit" class="btn btn-primary " value="Search by Id">Search by keyword</button>	
 		</form>
 	</div>
 
 
 	<div class="form3">
 		<form class="searchButton" action="create.html">
-			<input type="submit" value="Create New Film" />
+			 <!-- <input   type="submit" value="Create New Film" />  -->
+			 <button type="submit" class="btn btn-primary " value="Search by Id">Create New Film</button> 	
 		</form>
 	</div>
 
