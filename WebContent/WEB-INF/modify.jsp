@@ -30,14 +30,13 @@
 		<input type="text" name = "rentalDuration" value= "${ film.rentalDuration}"/><br>
 		Rental Rate<br>
 		<input type="text" name = "rentalRate" value= "${ film.rentalRate}"/><br>
-				Rental Rate<br>
-		
+		Length<br>
 		<input type="text" name = "length" value= "${ film.length}"/><br>
-				Rental Rate<br>
+		Replacement Cost<br>
 		<input type="text" name = "replacementCost" value= "${ film.replacementCost}"/><br>
-				Rental Rate<br>
+		Rating<br>
 		<input type="text" name = "rating" value= "${ film.rating}"/><br>
-				Rental Rate<br>
+		Special Features<br>
 		<input type="text" name = "specialFeatures" value= "${ film.specialFeatures}"/><br>
 		<input type="submit" value = "Submit changes"/>
 	</form>
