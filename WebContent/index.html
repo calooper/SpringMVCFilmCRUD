@@ -1,25 +1,59 @@
 <!DOCTYPE html>
 <html>
+<title>Films</title>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="app.css" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+	integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+	integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <head>
 <meta charset="UTF-8">
-<title>Home</title>
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-	crossorigin="anonymous">
+
+
 </head>
 <body>
-	<form action="searchId.do" method="GET">
-		<input type="number" name="id" /> <input type="submit"
-			value="Search by Id" />
-	</form>
-	<form action="searchKeyword.do" method="GET">
-		<input type="text" name="keyword" /> 
-		<input type="submit" value="Search by keyword" />
-	</form>
-	<form action="create.html">
-		<input type="submit" value="Create New Film" />
-	</form>
+
+
+
+
+	<div class="form1">
+
+		<form class="searchButton" action="searchId.do" method="GET">
+			<input type="number" name="id" /> <input type="submit"
+				value="Search by Id" />
+		</form>
+	</div>
+
+	<div class="form2">
+		<form class="searchButton" action="searchKeyword.do" method="GET">
+			<input type="text" name="keyword" /> <input type="submit"
+				value="Search by keyword" />
+		</form>
+	</div>
+
+	<div class="form3">
+		<form class="searchButton" action="create.html">
+			<input type="submit" value="Create New Film" />
+
+		</form>
+	</div>
+
+
+
+
+
+
 
 </body>
 </html>

@@ -253,8 +253,6 @@ public class FilmDaoImpl implements FilmDAO {
 	@Override
 	public String findCategory(int id) {
 
-		System.out.println(id);
-
 		String user = "student";
 		String pass = "student";
 		String sql = "SELECT category from film_list join film on film.id = film_list.FID  where film.id = ? ";

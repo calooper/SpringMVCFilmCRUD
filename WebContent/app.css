@@ -1,0 +1,56 @@
+@charset "UTF-8";
+body {
+    background-image: url(https://i.imgur.com/LBt6ceC.png);
+}
+
+.form1 {
+    position: absolute;
+    top: 20%;
+    left: 48%;
+    transform:  translate(-50%,50%);
+
+   
+
+}
+.form2 {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform:  translate(-50%,50%);
+  
+}
+
+.form3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:  translate(-50%,50%);
+ 
+
+}
+
+/* form.searchButton button{
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; Prevent double borders
+  cursor: pointer;
+} */
+
+/* form.searchButton input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+} */
+
+
+
+
+
