@@ -1,55 +1,57 @@
 @charset "UTF-8";
+
 body {
-    background-image: url(https://i.imgur.com/LBt6ceC.png);
+	background-image: url(https://i.imgur.com/LBt6ceC.png);
+	background-attachment: scroll;
 }
 
 .form1 {
-    position: absolute;
-    top: 20%;
-    left: 48%;
-    transform:  translate(-50%,50%);
-
-   
-
+	position: absolute;
+	top: 20%;
+	left: 48%;
+	transform: translate(-50%, 50%);
 }
+
 .form2 {
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform:  translate(-50%,50%);
-  
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	transform: translate(-50%, 50%);
 }
 
 .form3 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform:  translate(-50%,50%);
- 
-
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, 50%);
 }
-html {
-  margin: 40px auto;
+
+.searchButton button {
+	padding: 1px 1px;
+	background-color:rgba(192,192,192,0.7);
+	color: white;
+	border-radius: 5px;
+	padding: 2px;
+	background-color: no;
+	border-color: white;
+	border: thin;
+	cursor: pointer;
+	overflow: hidden;
+	outline: none;
 }
-.searchButton {
 
-	  border-radius: 0;
-	  color: #fff;
-	  border-width: 3px;
-	  border-style: solid;
-	  border-color: black;
-	  
-	  
-	}
-	.searchButton, .btn-search:visited {
-	  color: black;
-	}
-	.searchButton:active, .btn-search:hover {
-	  background: white;
-	  color: #fff;
-	}
+.searchButton input {
+	padding: 1px 1px;
+	background-color: white;
+	color: black;
+	cursor: default;
+	border-radius: 10px;
+	border-color: black;
+}
 
-
-
-
-
+.searchButton button:hover {
+	padding: 1px 1px;
+	background-color: black;
+	color: white;
+}
+=
