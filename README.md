@@ -1,4 +1,4 @@
-#### OVERVIEW
+# OVERVIEW
 This project is a full-stack Spring MVC web application that allows users to retrieve create, delete, and update data from a database. This project is intended to allow us to familiarize ourselves with pull request from GitHub, using C.R.U.D functionality, Spring MVC and the DAO pattern.
 
 ### FLOW
