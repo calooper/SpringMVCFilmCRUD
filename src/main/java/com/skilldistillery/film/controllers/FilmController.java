@@ -45,10 +45,11 @@ public class FilmController {
 	}
 
 	@RequestMapping(path = "createFilm.do")
-	public ModelAndView createFilm(String title, String description, String releaseYear, int rentalDuration, double rentalRate, int length, double replacementCost, String rating, String specialFeatures) {
+	public ModelAndView createFilm(String title, String description, int releaseYear, int rentalDuration, double rentalRate, int length, double replacementCost, String rating, String specialFeatures) {
+		String s = ""+releaseYear;
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("WEB-INF/result.jsp");
-		mv.addObject("film", filmDao.createFilm(title, description, releaseYear, rentalDuration, rentalRate, length, replacementCost, rating, specialFeatures));
+		mv.addObject("film", filmDao.createFilm(title, description, s, rentalDuration, rentalRate, length, replacementCost, rating, specialFeatures));
 		return mv;
 	}
 
