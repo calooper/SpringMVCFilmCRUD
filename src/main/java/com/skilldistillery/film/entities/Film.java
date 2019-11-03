@@ -16,6 +16,7 @@ public class Film {
 	private String specialFeatures;
 	private List<Actor> cast;
 	private String filmLanguage;
+	private String category;
 
 	public Film(int id, String title, String description, int releaseYear, int languageId, int rentalDuration,
 			double rentalRate, int length, double replacementCost, String rating, String specialFeatures,
@@ -211,6 +212,14 @@ public class Film {
 	public String toString() {
 		return "Title: " + title + "\nReleaseYear: " + releaseYear + "\nRating: " + rating + "\nLanguage: "
 				+ filmLanguage + "\nDESCRIPTION: " + description + "\nCast:    " + cast + "\n";
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 }

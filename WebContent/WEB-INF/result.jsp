@@ -13,6 +13,11 @@
 <title>Film</title>
 </head>
 <body>
+
+
+			<form action = "index.html">
+				<input type="submit" value="Back to Home"/>
+			</form>
 	<c:choose>
 		<c:when test="${! empty film}">
 			<ul style="list-style: none;">
@@ -42,9 +47,7 @@
 				<input type="hidden" name="id" value=${ film.id} /> <input
 					type="submit" value="Modify" />
 			</form>
-			<form action="index.html">
-				<input type="submit" value="Back to Home" />
-			</form>
+			
 		</c:when>
 		<c:otherwise>
 			<p>No film found</p>

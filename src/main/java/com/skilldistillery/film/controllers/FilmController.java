@@ -1,5 +1,7 @@
 package com.skilldistillery.film.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,10 +29,18 @@ public class FilmController {
 	@RequestMapping(path = "searchKeyword.do")
 	public ModelAndView filmSearchKeyword(String keyword) {
 		ModelAndView mv = new ModelAndView();
+
+		List<Film> filmList = filmDao.filmSearchKeyword(keyword);
+		String category;
 		
-		
+		for (Film film : filmList) {
+
+			category = filmDao.findCategory(film.getId());
+			film.setCategory(category);
+		}
+
 		mv.setViewName("WEB-INF/resultkeyword.jsp");
-		mv.addObject("filmList", filmDao.filmSearchKeyword(keyword));
+		mv.addObject("filmList", filmList);
 		return mv;
 	}
 
@@ -57,8 +67,6 @@ public class FilmController {
 			String rentalDuration, String rentalRate, String length, String replacementCost, String rating,
 			String specialFeatures) {
 
-		System.out.println(id + "upadte film");
-
 		int idInt = Integer.parseInt(id);
 		int releaseYearInt = Integer.parseInt(releaseYear);
 		int languageIdInt = Integer.parseInt(languageId);
@@ -79,13 +87,9 @@ public class FilmController {
 	@RequestMapping(path = "modifyFilm.do")
 	public ModelAndView modifyFilmInputReRoute(int id) {
 
-		System.out.println(id + "top");
-
 		Film film = filmDao.filmSearchId(id);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("film", film);
-
-		System.out.println(film + "last");
 
 		mv.setViewName("WEB-INF/modify.jsp");
 		return mv;

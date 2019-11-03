@@ -32,5 +32,7 @@
 		<input type="text" name="rating" value="${ film.rating}" /><br> Special Features<br> 
 		<input type="text" name="specialFeatures" value="${ film.specialFeatures}" /><br> 
 		<input type="submit" value="Submit changes" />
+		
+		
 </body>
 </html>
