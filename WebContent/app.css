@@ -28,27 +28,26 @@ body {
  
 
 }
+html {
+  margin: 40px auto;
+}
+.searchButton {
 
-/* form.searchButton button{
-  float: left;
-  width: 20%;
-  padding: 10px;
-  background: #2196F3;
-  color: white;
-  font-size: 17px;
-  border: 1px solid grey;
-  border-left: none; Prevent double borders
-  cursor: pointer;
-} */
-
-/* form.searchButton input[type=text] {
-  padding: 10px;
-  font-size: 17px;
-  border: 1px solid grey;
-  float: left;
-  width: 80%;
-  background: #f1f1f1;
-} */
+	  border-radius: 0;
+	  color: #fff;
+	  border-width: 3px;
+	  border-style: solid;
+	  border-color: black;
+	  
+	  
+	}
+	.searchButton, .btn-search:visited {
+	  color: black;
+	}
+	.searchButton:active, .btn-search:hover {
+	  background: white;
+	  color: #fff;
+	}
 
 
 
