@@ -130,7 +130,7 @@ public class FilmDaoImpl implements FilmDAO {
 		String user = "student";
 		String pass = "student";
 		String sql = "Insert into film (title, description, language_id, rental_duration, rental_rate, length, replacement_cost, rating) "
-				+ "VALUES (?,?,?,?,?,?,?,?,?)";
+				+ "VALUES (?,?,?,?,?,?,?,?)";
 		Connection conn = null;
 		try {
 			conn = DriverManager.getConnection(URL, user, pass);
@@ -144,7 +144,7 @@ public class FilmDaoImpl implements FilmDAO {
 			stmt.setInt(6, newFilm.getLength());
 			stmt.setDouble(7, newFilm.getReplacementCost());
 			stmt.setString(8, newFilm.getRating());
-			stmt.setString(9, newFilm.getSpecialFeatures());
+//			stmt.setString(9, newFilm.getSpecialFeatures());
 
 			conn.setAutoCommit(false);
 			int uc = stmt.executeUpdate();
