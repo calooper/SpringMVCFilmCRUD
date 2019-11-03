@@ -19,4 +19,6 @@ public interface FilmDAO {
 	public boolean modifyFilm(int id, String title, String description, int rereleaseYear, int languageId,
 			int rentalDuration, double rentalRate, int length, double replacementCost, String rating,
 			String specialFeatures);
+
+	public String findCategory(int id);
 }

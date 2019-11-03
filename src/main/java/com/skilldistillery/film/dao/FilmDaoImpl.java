@@ -249,4 +249,39 @@ public class FilmDaoImpl implements FilmDAO {
 		}
 		return true;
 	}
+
+	@Override
+	public String findCategory(int id) {
+
+		System.out.println(id);
+
+		String user = "student";
+		String pass = "student";
+		String sql = "SELECT category from film_list join film on film.id = film_list.FID  where film.id = ? ";
+		String filmId = null;
+
+		try {
+			Connection conn = DriverManager.getConnection(URL, user, pass);
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, id);
+			ResultSet res = stmt.executeQuery();
+
+			while (res.next()) {
+
+				filmId = res.getString(1);
+
+			}
+
+			res.close();
+			stmt.close();
+			conn.close();
+		}
+
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return filmId;
+	}
+
 }
