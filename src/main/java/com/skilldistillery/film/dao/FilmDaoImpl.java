@@ -41,8 +41,9 @@ public class FilmDaoImpl implements FilmDAO {
 
 			if (res.next()) {
 				cast = findActorsByFilmId(id);
+				String s = ""+res.getInt("release_year");
 				film = new Film(res.getInt("id"), res.getString("title"), res.getString("description"),
-						res.getString("release_year"), res.getInt("language_id"), res.getInt("rental_duration"),
+						s, res.getInt("language_id"), res.getInt("rental_duration"),
 						res.getDouble("rental_rate"), res.getInt("length"), res.getDouble("replacement_cost"),
 						res.getString("rating"), res.getString("special_features"), cast,
 						res.getString("language.name"));
@@ -73,9 +74,10 @@ public class FilmDaoImpl implements FilmDAO {
 			stmt.setString(2, "%" + keyword + "%");
 			ResultSet res = stmt.executeQuery();
 			while (res.next()) {
+				String s = "" + res.getInt("release_year");
 				cast = findActorsByFilmId(res.getInt("film.id"));
 				film = new Film(res.getInt("id"), res.getString("title"), res.getString("description"),
-						res.getString("release_year"), res.getInt("language_id"), res.getInt("rental_duration"),
+						s, res.getInt("language_id"), res.getInt("rental_duration"),
 						res.getDouble("rental_rate"), res.getInt("length"), res.getDouble("replacement_cost"),
 						res.getString("rating"), res.getString("special_features"), cast,
 						res.getString("language.name"));

@@ -6,7 +6,7 @@ public class Film {
 	private int id;
 	private String title;
 	private String description;
-	private String releaseYear;
+	private int releaseYear;
 	private int languageId;
 	private int rentalDuration;
 	private double rentalRate;
@@ -25,7 +25,7 @@ public class Film {
 		this.id = id;
 		this.title = title;
 		this.description = description;
-		this.releaseYear = releaseYear;
+		this.releaseYear = Integer.parseInt(releaseYear);
 		this.languageId = languageId;
 		this.rentalDuration = rentalDuration;
 		this.rentalRate = rentalRate;
@@ -89,12 +89,12 @@ public class Film {
 		this.cast = cast;
 	}
 
-	public String getReleaseYear() {
+	public int getReleaseYear() {
 		return releaseYear;
 	}
 
 	public void setReleaseYear(String releaseYear) {
-		this.releaseYear = releaseYear;
+		this.releaseYear = Integer.parseInt(releaseYear);
 	}
 
 	public int getLanguageId() {
@@ -157,7 +157,7 @@ public class Film {
 		result = prime * result + languageId;
 		result = prime * result + length;
 		result = prime * result + ((rating == null) ? 0 : rating.hashCode());
-		result = prime * result + ((releaseYear == null) ? 0 : releaseYear.hashCode());
+		result = prime * result + releaseYear;
 		result = prime * result + rentalDuration;
 		long temp;
 		temp = Double.doubleToLongBits(rentalRate);
@@ -209,10 +209,7 @@ public class Film {
 				return false;
 		} else if (!rating.equals(other.rating))
 			return false;
-		if (releaseYear == null) {
-			if (other.releaseYear != null)
-				return false;
-		} else if (!releaseYear.equals(other.releaseYear))
+		if (releaseYear != other.releaseYear)
 			return false;
 		if (rentalDuration != other.rentalDuration)
 			return false;
