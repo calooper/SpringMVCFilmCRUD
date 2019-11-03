@@ -31,7 +31,7 @@
 		<c:when test="${! empty film}">
 			<ul style="list-style: none;">
 				<li><strong>${film.title}</strong></li>
-				<li>${film.description}</li>
+				<li>About: ${film.description}</li>
 				<li>Release Year: ${film.releaseYear}</li>
 				<li>Rental Duration: ${film.rentalDuration } days</li>
 				<li>Rental Rate: $${film.rentalRate } per night</li>
