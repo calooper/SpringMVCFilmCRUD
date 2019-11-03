@@ -45,10 +45,10 @@ public class FilmController {
 	}
 
 	@RequestMapping(path = "createFilm.do")
-	public ModelAndView createFilm(String title, String description, int releaseYear) {
+	public ModelAndView createFilm(String title, String description, String releaseYear, int rentalDuration, double rentalRate, int length, double replacementCost, String rating, String specialFeatures) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("WEB-INF/result.jsp");
-		mv.addObject("film", filmDao.createFilm(title, description, releaseYear));
+		mv.addObject("film", filmDao.createFilm(title, description, releaseYear, rentalDuration, rentalRate, length, replacementCost, rating, specialFeatures));
 		return mv;
 	}
 
@@ -68,14 +68,14 @@ public class FilmController {
 			String specialFeatures) {
 
 		int idInt = Integer.parseInt(id);
-		int releaseYearInt = Integer.parseInt(releaseYear);
+//		int releaseYearInt = Integer.parseInt(releaseYear);
 		int languageIdInt = Integer.parseInt(languageId);
 		int rentalDurationInt = Integer.parseInt(rentalDuration);
 		double rentalRateDouble = Double.parseDouble(rentalRate);
 		int lengthInt = Integer.parseInt(rentalDuration);
 		double replacementCostDouble = Double.parseDouble(rentalRate);
 
-		boolean result = filmDao.modifyFilm(idInt, title, description, releaseYearInt, languageIdInt, rentalDurationInt,
+		boolean result = filmDao.modifyFilm(idInt, title, description, languageIdInt, rentalDurationInt,
 				rentalRateDouble, lengthInt, replacementCostDouble, rating, specialFeatures);
 
 		ModelAndView mv = new ModelAndView();

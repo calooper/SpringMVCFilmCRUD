@@ -42,7 +42,7 @@ public class FilmDaoImpl implements FilmDAO {
 			if (res.next()) {
 				cast = findActorsByFilmId(id);
 				film = new Film(res.getInt("id"), res.getString("title"), res.getString("description"),
-						res.getInt("release_year"), res.getInt("language_id"), res.getInt("rental_duration"),
+						res.getString("release_year"), res.getInt("language_id"), res.getInt("rental_duration"),
 						res.getDouble("rental_rate"), res.getInt("length"), res.getDouble("replacement_cost"),
 						res.getString("rating"), res.getString("special_features"), cast,
 						res.getString("language.name"));
@@ -75,7 +75,7 @@ public class FilmDaoImpl implements FilmDAO {
 			while (res.next()) {
 				cast = findActorsByFilmId(res.getInt("film.id"));
 				film = new Film(res.getInt("id"), res.getString("title"), res.getString("description"),
-						res.getInt("release_year"), res.getInt("language_id"), res.getInt("rental_duration"),
+						res.getString("release_year"), res.getInt("language_id"), res.getInt("rental_duration"),
 						res.getDouble("rental_rate"), res.getInt("length"), res.getDouble("replacement_cost"),
 						res.getString("rating"), res.getString("special_features"), cast,
 						res.getString("language.name"));
@@ -122,26 +122,26 @@ public class FilmDaoImpl implements FilmDAO {
 		return actorList;
 	}
 
-	public Film createFilm(String title, String description, int releaseYear) {
+	public Film createFilm(String title, String description, String releaseYear, int rentalDuration, double rentalRate, int length, double replacementCost, String rating, String specialFeatures) {
 
-		Film newFilm = new Film(0, title, description, releaseYear, 1, 2, 0.0, 2, 0.0, "", "", null, "");
+		Film newFilm = new Film(0, title, description, releaseYear, 1, rentalDuration, rentalRate, length, replacementCost, rating, specialFeatures, null, "English");
 		String user = "student";
 		String pass = "student";
-		String sql = "Insert into film (title, description, release_year, language_id, length, replacement_cost) "
-				+ "VALUES (?,?,?,?,?,?)";
+		String sql = "Insert into film (title, description, language_id, rental_duration, rental_rate, length, replacement_cost, rating) "
+				+ "VALUES (?,?,?,?,?,?,?,?)";
 		Connection conn = null;
 		try {
 			conn = DriverManager.getConnection(URL, user, pass);
 			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, title);
 			stmt.setString(2, description);
-			stmt.setInt(3, releaseYear);
-			stmt.setInt(4, newFilm.getLanguageId());
-//			stmt.setInt(5, newFilm.getRentalDuration());
-//			stmt.setDouble(6, newFilm.getRentalRate());
-			stmt.setInt(5, newFilm.getLength());
-			stmt.setDouble(6, newFilm.getReplacementCost());
-//			stmt.setString(9, newFilm.getRating());
+//			stmt.setString(3, releaseYear);
+			stmt.setInt(3, newFilm.getLanguageId());
+			stmt.setInt(4, newFilm.getRentalDuration());
+			stmt.setDouble(5, newFilm.getRentalRate());
+			stmt.setInt(6, newFilm.getLength());
+			stmt.setDouble(7, newFilm.getReplacementCost());
+			stmt.setString(8, newFilm.getRating());
 //			stmt.setString(10, newFilm.getSpecialFeatures());
 
 			conn.setAutoCommit(false);
@@ -201,7 +201,7 @@ public class FilmDaoImpl implements FilmDAO {
 		return result;
 	}
 
-	public boolean modifyFilm(int id, String title, String description, int rereleaseYear, int languageId,
+	public boolean modifyFilm(int id, String title, String description, int languageId,
 			int rentalDuration, double rentalRate, int length, double replacementCost, String rating,
 			String specialFeatures) {
 
@@ -213,22 +213,22 @@ public class FilmDaoImpl implements FilmDAO {
 		try {
 			conn = DriverManager.getConnection(URL, user, pass);
 			conn.setAutoCommit(false); // START TRANSACTION
-			String sql = "UPDATE film SET title = ?, description = ?, release_year = ?, language_id = ?, "
+			String sql = "UPDATE film SET title = ?, description = ?, language_id = ?, "
 					+ "rental_duration = ?, rental_rate = ?, length = ?, replacement_cost = ?, rating = ?, "
 					+ "special_features = ?  WHERE film.id=?";
 			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
 			stmt.setString(1, title);
 			stmt.setString(2, description);
-			stmt.setInt(3, rereleaseYear);
-			stmt.setInt(4, languageId);
-			stmt.setInt(5, rentalDuration);
-			stmt.setDouble(6, rentalRate);
-			stmt.setInt(7, length);
-			stmt.setDouble(8, replacementCost);
-			stmt.setString(9, rating);
-			stmt.setString(10, specialFeatures);
-			stmt.setInt(11, id);
+//			stmt.setInt(3, rereleaseYear);
+			stmt.setInt(3, languageId);
+			stmt.setInt(4, rentalDuration);
+			stmt.setDouble(5, rentalRate);
+			stmt.setInt(6, length);
+			stmt.setDouble(7, replacementCost);
+			stmt.setString(8, rating);
+			stmt.setString(9, specialFeatures);
+			stmt.setInt(10, id);
 
 			int updateCount = stmt.executeUpdate();
 

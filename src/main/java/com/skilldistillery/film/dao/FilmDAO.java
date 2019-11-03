@@ -12,11 +12,11 @@ public interface FilmDAO {
 
 	public List<Actor> findActorsByFilmId(int filmId);
 
-	public Film createFilm(String title, String description, int releaseYear);
+	public Film createFilm(String title, String description, String releaseYear, int rentalDuration, double rentalRate, int length, double replacementCost, String rating, String specialFeatures);
 
 	public boolean deleteFilm(int id);
 
-	public boolean modifyFilm(int id, String title, String description, int rereleaseYear, int languageId,
+	public boolean modifyFilm(int id, String title, String description, int languageId,
 			int rentalDuration, double rentalRate, int length, double replacementCost, String rating,
 			String specialFeatures);
 
