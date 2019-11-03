@@ -4,9 +4,9 @@ This project is a full-stack Spring MVC web application that allows users to ret
 ### FLOW
 The application begins in an HTML File where the user is displayed the options to:
 
--Search Film by ID
--Search Film by keyword
--Create new Film
+  Search Film by ID
+---    Search Film by keyword
+---    Create new Film
 
 Search Film by ID captures the annotation value that a user submits and sends it to the mapped method in the controller class. The method then passes the search ID value to the corresponding method in the Data Access Object class. Inside that method, a SQL string queries the results from the database to match the binding variable ( Film ID). The method returns a Film object back to the method in the controller class. This method creates a ModelAndView object of the film object attributes that are then displayed in a JSP file.
 
