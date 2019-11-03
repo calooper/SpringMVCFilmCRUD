@@ -201,7 +201,7 @@ public class FilmDaoImpl implements FilmDAO {
 		return result;
 	}
 
-	public boolean modifyFilm(int id, String title, String description, int languageId,
+	public boolean modifyFilm(int id, String title, int releaseYear, String description, int languageId,
 			int rentalDuration, double rentalRate, int length, double replacementCost, String rating,
 			String specialFeatures) {
 
@@ -213,22 +213,22 @@ public class FilmDaoImpl implements FilmDAO {
 		try {
 			conn = DriverManager.getConnection(URL, user, pass);
 			conn.setAutoCommit(false); // START TRANSACTION
-			String sql = "UPDATE film SET title = ?, description = ?, language_id = ?, "
+			String sql = "UPDATE film SET title = ?, description = ?, release_year = ?, language_id = ?, "
 					+ "rental_duration = ?, rental_rate = ?, length = ?, replacement_cost = ?, rating = ?, "
 					+ "special_features = ?  WHERE film.id=?";
 			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
 			stmt.setString(1, title);
 			stmt.setString(2, description);
-//			stmt.setInt(3, rereleaseYear);
-			stmt.setInt(3, languageId);
-			stmt.setInt(4, rentalDuration);
-			stmt.setDouble(5, rentalRate);
-			stmt.setInt(6, length);
-			stmt.setDouble(7, replacementCost);
-			stmt.setString(8, rating);
-			stmt.setString(9, specialFeatures);
-			stmt.setInt(10, id);
+			stmt.setInt(3, releaseYear);
+			stmt.setInt(4, languageId);
+			stmt.setInt(5, rentalDuration);
+			stmt.setDouble(6, rentalRate);
+			stmt.setInt(7, length);
+			stmt.setDouble(8, replacementCost);
+			stmt.setString(9, rating);
+			stmt.setString(10, specialFeatures);
+			stmt.setInt(11, id);
 
 			int updateCount = stmt.executeUpdate();
 

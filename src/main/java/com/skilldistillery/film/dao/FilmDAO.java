@@ -16,7 +16,7 @@ public interface FilmDAO {
 
 	public boolean deleteFilm(int id);
 
-	public boolean modifyFilm(int id, String title, String description, int languageId,
+	public boolean modifyFilm(int id, String title, int releaseYear, String description, int languageId,
 			int rentalDuration, double rentalRate, int length, double replacementCost, String rating,
 			String specialFeatures);
 

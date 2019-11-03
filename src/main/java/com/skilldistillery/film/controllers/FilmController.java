@@ -68,14 +68,14 @@ public class FilmController {
 			String specialFeatures) {
 
 		int idInt = Integer.parseInt(id);
-//		int releaseYearInt = Integer.parseInt(releaseYear);
+		int releaseYearInt = Integer.parseInt(releaseYear);
 		int languageIdInt = Integer.parseInt(languageId);
 		int rentalDurationInt = Integer.parseInt(rentalDuration);
 		double rentalRateDouble = Double.parseDouble(rentalRate);
 		int lengthInt = Integer.parseInt(rentalDuration);
 		double replacementCostDouble = Double.parseDouble(rentalRate);
 
-		boolean result = filmDao.modifyFilm(idInt, title, description, languageIdInt, rentalDurationInt,
+		boolean result = filmDao.modifyFilm(idInt, title, releaseYearInt, description, languageIdInt, rentalDurationInt,
 				rentalRateDouble, lengthInt, replacementCostDouble, rating, specialFeatures);
 
 		ModelAndView mv = new ModelAndView();
