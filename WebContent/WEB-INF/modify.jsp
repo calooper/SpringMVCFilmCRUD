@@ -23,7 +23,7 @@
 
 		<input type="hidden" name="id" value="${ film.id}" style="opacity: 0.5;"/>
 		Title <input type="text" name="title" value="${ film.title}" style="opacity: 0.5;"/> 
-		About <input type="text" name="description"value="${ film.description}" style="opacity: 0.5;"/> 
+		About <input type="text" name="description" value="${ film.description}" style="opacity: 0.5;"/> 
 		Year <input type="text" name="releaseYear" value="${ film.releaseYear}" style="opacity: 0.5;"/><br><br> 
 		Language ID <input type="text" name="languageId"value="${ film.languageId}" style="opacity: 0.5;"/> 
 		Rental Duration <input type="text" name="rentalDuration" value="${ film.rentalDuration}" style="opacity: 0.5;"/> 

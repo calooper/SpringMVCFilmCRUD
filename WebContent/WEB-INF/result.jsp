@@ -35,7 +35,7 @@
 				<li>Release Year: ${film.releaseYear}</li>
 				<li>Rental Duration: ${film.rentalDuration } days</li>
 				<li>Rental Rate: $${film.rentalRate } per night</li>
-				<li>Length: ${film.length } Hours</li>
+				<li>Length: ${film.length } Minutes</li>
 				<li>Replacement Cost: $${film.replacementCost }</li>
 				<li>Rating: ${film.rating }</li>
 				<li>Special Features ${film.specialFeatures }</li>
