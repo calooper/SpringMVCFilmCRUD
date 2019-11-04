@@ -19,7 +19,8 @@
 <title>Film</title>
 </head>
 <body>
-	<a href="index.html" class="fas fa-home" aria-hidden="true"  style="font-size:40px; color:orange; float:right"></a>
+	<a href="index.html" class="fas fa-home" aria-hidden="true"
+		style="font-size: 40px; color: orange; float: right"></a>
 	<c:choose>
 		<c:when test="${! empty filmList}">
 			<ol>
@@ -41,7 +42,7 @@
 						<ul>
 							<strong>Cast:</strong>
 							<c:forEach items="${film.cast }" var="actor">
-								<li>${actor.firstName } ${actor.lastName }</li>
+								<li>${actor.firstName }${actor.lastName }</li>
 
 							</c:forEach>
 						</ul>
@@ -53,6 +54,11 @@
 					<form action="modifyFilm.do" method="GET">
 						<input type="hidden" name="id" value=${ film.id} /> <input
 							type="submit" value="Modify" />
+					</form>
+					</form>
+					<form action="getNewActor.do" method="GET">
+						<input type="hidden" name="filmid" value=${ film.id} /> <input
+							type="submit" value="Add Actor to Film" />
 					</form>
 					<br>
 				</c:forEach>

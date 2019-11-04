@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.film.dao.FilmDAO;
@@ -101,6 +102,23 @@ public class FilmController {
 		mv.addObject("film", film);
 
 		mv.setViewName("WEB-INF/modify.jsp");
+		return mv;
+	}
+	
+	@RequestMapping(path= "getNewActor.do")
+	public ModelAndView addActorReRoute(int filmid) {
+		Film film = filmDao.filmSearchId(filmid);
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("film", film);
+		mv.setViewName("WEB-INF/add_actor.jsp");
+		return mv;
+	}
+	@RequestMapping(path="addActorToFilm.do")
+	public ModelAndView addActor(int filmid, String firstName, String lastName) {
+		ModelAndView mv = new ModelAndView();
+		Film copy = filmDao.addActorToFilm(filmid, firstName, lastName);
+		mv.addObject(copy);
+		mv.setViewName("WEB-INF/result.jsp");
 		return mv;
 	}
 }

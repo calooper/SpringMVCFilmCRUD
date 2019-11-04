@@ -1,0 +1,41 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+	<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+	integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+	crossorigin="anonymous">
+	
+<title>Add Actor Info</title>
+</head>
+
+<body>
+
+<a href="index.html" class="fas fa-home" aria-hidden="true"  style="font-size:40px; color:orange; float:right"></a>
+ 
+ 
+
+	<form action="addActorToFilm.do">
+
+		<input type="hidden" name="filmid" value="${ film.id}" style="opacity: 0.5;"/>
+		First Name <input type="text" name="firstName" value="First" style="opacity: 0.5;"/> 
+		About <input type="text" name="lastName" value="Last" style="opacity: 0.5;"/> 
+		<input type="submit" value="Add Actor to Film"/>
+
+		</form>
+		
+</body>
+</html>

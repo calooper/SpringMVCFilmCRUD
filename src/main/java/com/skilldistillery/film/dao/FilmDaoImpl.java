@@ -307,7 +307,6 @@ public class FilmDaoImpl implements FilmDAO {
 				}
 				stmt.close();
 				conn.close();
-				System.out.println(actor.getFirstName());
 				return actor;
 			}
 			stmt.close();
@@ -327,5 +326,56 @@ public class FilmDaoImpl implements FilmDAO {
 	}
 		return null;
 }
+	
+	public Film addActorToFilm(int filmid, String firstName, String lastName) {
+		Film updatedFilm = null;
+		
+		String user = "student";
+		String pass = "student";
+		String sql = "Insert into actor (first_name, last_name) values (?, ?) ";
+		String sql2= "Insert into film_actor (film_id, actor_id) values (?, ?) ";
+		int actorId;
+		Connection conn = null;
+		
+		try {
+			conn = DriverManager.getConnection(URL, user, pass);
+			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			stmt.setString(1, firstName);
+			stmt.setString(2, lastName);
+			
+			conn.setAutoCommit(false);
+			int uc = stmt.executeUpdate();
+			
+			if (uc == 1) {
+				ResultSet keys = stmt.getGeneratedKeys();
+				if (keys.next()) {
+					actorId=keys.getInt(1);
+					
+					stmt = conn.prepareStatement(sql2);
+					stmt.setInt(1, filmid);
+					stmt.setInt(2, actorId);
+					int uc2 = stmt.executeUpdate();
+					conn.commit();
+					updatedFilm = filmSearchId(filmid);
+					stmt.close();
+					conn.close();
+					return updatedFilm;
+				}
+			}
+		}
+
+		catch (SQLException e) {
+			e.printStackTrace();
+			if (conn != null) {
+				try {
+					conn.rollback();
+				} catch (SQLException sqle2) {
+					System.err.println("Error trying to rollback");
+				}
+		}
+		
+	}
+		return null;
+	}
 }
 

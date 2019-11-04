@@ -56,6 +56,10 @@
 				<input type="hidden" name="id" value=${ film.id} /> <input
 					type="submit" value="Modify" />
 			</form>
+			<form action="getNewActor.do" method="GET">
+			<input type="hidden" name="filmid" value=${ film.id} />
+			<input type="submit" value="Add Actor to Film"/>
+			</form>
 			
 		</c:when>
 		<c:otherwise>

@@ -23,4 +23,6 @@ public interface FilmDAO {
 	public String findCategory(int id);
 	
 	public Actor addActor(String firstName, String lastName);
+	
+	public Film addActorToFilm(int filmid, String firstName, String lastName);
 }
