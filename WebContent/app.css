@@ -1,14 +1,11 @@
 @charset "UTF-8";
 
 body {
-	background-image: url("https://i.imgur.com/661j0rJ.png"), url(https://i.imgur.com/LBt6ceC.png);
+	background-image: url("https://i.imgur.com/661j0rJ.png"),
+		url(https://i.imgur.com/LBt6ceC.png);
 	background-attachment: scroll, fixed;
 	background-repeat: no-repeat, no-repeat;
 	background-size: 3000px, 1500px;
-
-	
-	
-	
 }
 
 .form1 {
@@ -27,20 +24,21 @@ body {
 
 .form3 {
 	position: absolute;
-	top: 38%;
-	left: 50%;
+	top: 36%;
+	left: 56%;
 	transform: translate(-50%, 50%);
 }
+
 .form4 {
 	position: absolute;
-	top: 46%;
-	left: 50%;
+	top: 36%;
+	left: 45%;
 	transform: translate(-50%, 50%);
 }
 
 .searchButton button {
 	padding: 1px 1px;
-	background-color:rgba(192,192,192,0.7);
+	background-color: rgba(192, 192, 192, 0.7);
 	color: white;
 	border-radius: 5px;
 	padding: 2px;
@@ -50,6 +48,7 @@ body {
 	cursor: pointer;
 	overflow: hidden;
 	outline: none;
+
 }
 
 .searchButton input {
@@ -68,54 +67,31 @@ body {
 }
 
 .topBar {
-  overflow: scroll;
-  float: right;
-  background-image: url(https://i.imgur.com/NL8Vuas.png);
-  background-position: 1% 110%;
-  background-size: 380px;
-  background-repeat: no-repeat;
-
-
+	overflow: scroll;
+	float: right;
+	background-image: url(https://i.imgur.com/NL8Vuas.png);
+	background-position: 1% 110%;
+	background-size: 380px;
+	background-repeat: no-repeat;
 }
 
 .topBar a {
-  float: right;
-  display: run-in;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 30px 30px;
-  text-decoration: none;
+	float: right;
+	display: run-in;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 30px 30px;
+	text-decoration: none;
 
-  /* position: fixed; */
+	/* position: fixed; */
 }
 
 .blackBar {
-  overflow: scroll;
-  float: right;
-  background-image: url(https://i.imgur.com/pEwQEHc.png);
-  background-position: 1% 110%;
-  background-size: 380px;
-  background-repeat: no-repeat;
-
-
-
+	overflow: scroll;
+	float: right;
+	background-image: url(https://i.imgur.com/pEwQEHc.png);
+	background-position: 1% 110%;
+	background-size: 380px;
+	background-repeat: no-repeat;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 =
