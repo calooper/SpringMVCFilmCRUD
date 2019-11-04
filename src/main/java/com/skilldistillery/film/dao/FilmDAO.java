@@ -21,4 +21,6 @@ public interface FilmDAO {
 			String specialFeatures);
 
 	public String findCategory(int id);
+	
+	public Actor addActor(String firstName, String lastName);
 }

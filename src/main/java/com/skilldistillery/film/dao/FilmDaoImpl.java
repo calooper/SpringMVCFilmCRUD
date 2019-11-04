@@ -283,5 +283,49 @@ public class FilmDaoImpl implements FilmDAO {
 
 		return filmId;
 	}
+	
+	public Actor addActor(String firstName, String lastName) {
+		Actor actor = new Actor(0, firstName, lastName);
+		String user = "student";
+		String pass = "student";
+		String sql = "Insert into actor (first_name, last_name) values (?, ?) ";
+		Connection conn = null;
+		try {
+			conn = DriverManager.getConnection(URL, user, pass);
+			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			stmt.setString(1, firstName);
+			stmt.setString(2, lastName);
+			
+			conn.setAutoCommit(false);
+			int uc = stmt.executeUpdate();
+			
+			if (uc == 1) {
+				ResultSet keys = stmt.getGeneratedKeys();
+				if (keys.next()) {
+					actor.setId(keys.getInt(1));
+					conn.commit();
+				}
+				stmt.close();
+				conn.close();
+				System.out.println(actor.getFirstName());
+				return actor;
+			}
+			stmt.close();
+			conn.close();
+		}
 
+		catch (SQLException e) {
+			e.printStackTrace();
+			if (conn != null) {
+				try {
+					conn.rollback();
+				} catch (SQLException sqle2) {
+					System.err.println("Error trying to rollback");
+				}
+		}
+		
+	}
+		return null;
 }
+}
+

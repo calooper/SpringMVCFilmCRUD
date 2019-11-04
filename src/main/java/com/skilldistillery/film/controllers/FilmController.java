@@ -52,6 +52,14 @@ public class FilmController {
 		mv.addObject("film", filmDao.createFilm(title, description, s, rentalDuration, rentalRate, length, replacementCost, rating, specialFeatures));
 		return mv;
 	}
+	
+	@RequestMapping(path = "createActor.do")
+	public ModelAndView createActor(String firstName, String lastName) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("WEB-INF/result_actor.jsp");
+		mv.addObject("actor", filmDao.addActor(firstName, lastName));
+		return mv;
+	}
 
 	@RequestMapping(path = "deleteFilm.do")
 	public ModelAndView deleteFilm(int id) {

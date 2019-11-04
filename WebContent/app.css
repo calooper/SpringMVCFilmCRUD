@@ -31,6 +31,12 @@ body {
 	left: 50%;
 	transform: translate(-50%, 50%);
 }
+.form4 {
+	position: absolute;
+	top: 46%;
+	left: 50%;
+	transform: translate(-50%, 50%);
+}
 
 .searchButton button {
 	padding: 1px 1px;
