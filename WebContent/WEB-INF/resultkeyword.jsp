@@ -6,10 +6,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet"
+<!-- <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-	crossorigin="anonymous">
+	crossorigin="anonymous"> -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet"
@@ -39,13 +39,20 @@
 							<li>Language: ${film.filmLanguage }</li>
 							<li>Category: ${film.category }</li>
 						</ul>
-						<ul>
 							<strong>Cast:</strong>
+						<ul>
 							<c:forEach items="${film.cast }" var="actor">
-								<li>${actor.firstName }${actor.lastName }</li>
+								<li>${actor.firstName } ${actor.lastName }
+									<form action="removeActorFromFilm.do">
+									<input type="hidden" name="filmid" value= ${ film.id} />
+									<input type="hidden" name="actorid" value= ${ actor.id} />
+									<input type="submit" value="Remove Actor"/> 
+									</form>
+								</li>
 
 							</c:forEach>
 						</ul>
+						<br>
 					</li>
 					<form action="deleteFilm.do" method="GET">
 						<input type="hidden" name="id" value=${ film.id} /> <input

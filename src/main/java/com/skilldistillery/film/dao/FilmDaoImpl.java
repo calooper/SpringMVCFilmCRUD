@@ -377,5 +377,34 @@ public class FilmDaoImpl implements FilmDAO {
 	}
 		return null;
 	}
+	
+	public boolean deleteActorFromFilm(int filmid, int actorid) {
+		String user = "student";
+		String pass = "student";
+		String sql = "Delete from film_actor where film_id = ? AND actor_id = ?";
+		boolean result = true;
+		Connection conn = null;
+		try {
+			conn = DriverManager.getConnection(URL, user, pass);
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, filmid);
+			stmt.setInt(2,  actorid);
+			stmt.executeUpdate();
+//			conn.commit();
+			conn.close();
+			stmt.close();
+
+		} catch (SQLException e) {
+			result = false;
+			if (conn != null) {
+				try {
+					conn.rollback();
+				} catch (SQLException sqle2) {
+					System.err.println("Error trying to rollback");
+				}
+			}
+		}
+		return result;
+	}
 }
 

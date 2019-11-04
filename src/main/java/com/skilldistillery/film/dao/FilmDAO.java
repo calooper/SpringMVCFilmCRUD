@@ -25,4 +25,6 @@ public interface FilmDAO {
 	public Actor addActor(String firstName, String lastName);
 	
 	public Film addActorToFilm(int filmid, String firstName, String lastName);
+	
+	public boolean deleteActorFromFilm(int filmid, int actorid);
 }

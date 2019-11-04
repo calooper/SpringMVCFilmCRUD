@@ -121,4 +121,15 @@ public class FilmController {
 		mv.setViewName("WEB-INF/result.jsp");
 		return mv;
 	}
+	
+	@RequestMapping(path="removeActorFromFilm.do")
+	public ModelAndView deleteActorFromFilm(int filmid, int actorid) {
+		ModelAndView mv = new ModelAndView();
+		boolean result = filmDao.deleteActorFromFilm(filmid, actorid);
+		mv.setViewName("WEB-INF/actorremovedmessage.jsp");
+		mv.addObject("result", result);
+		return mv;
+				
+	}
+	
 }
